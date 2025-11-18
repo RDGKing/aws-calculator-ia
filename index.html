@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Calculadora IA — Cálculos aritméticos</title>
+
+  <!-- Bootstrap CSS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-..." crossorigin="anonymous">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="app-bg">
+  <header class="navbar navbar-expand-sm navbar-dark bg-transparent">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#" aria-label="Inicio Calculadora IA">Calculadora IA</a>
+      <span class="navbar-text small opacity-75">
+        Realiza cálculos aritméticos directos (+ − × ÷) con paréntesis y notación científica
+      </span>
+    </div>
+  </header>
+
+  <main class="container py-4 py-md-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <section class="glass p-4 p-md-5 shadow-sm">
+          <h1 class="h3 mb-2 hero-title">Calculadora IA</h1>
+          <p class="text-secondary mb-4">
+            Ingresa una expresión aritmética para obtener su resultado inmediato. Soporta:
+            números con punto o coma decimal, signos ± unarios, paréntesis, notación científica (ej.: <code>1e-3</code>),
+            y símbolos <code>×</code>, <code>÷</code> o <code>x</code> como multiplicación.
+          </p>
+
+          <form id="mathForm" novalidate class="needs-validation">
+            <div class="row g-3">
+              <div class="col-12">
+                <label for="expression" class="form-label">Expresión</label>
+                <input
+                  type="text"
+                  id="expression"
+                  class="form-control form-control-lg font-monospace"
+                  placeholder="Ej.: (-3 + 5) × 2 ÷ 4, 1,5 + 2e-3, -(-2 + 7) * 3"
+                  required
+                >
+                <div class="invalid-feedback">
+                  Ingresa una expresión válida usando + - × ÷ y paréntesis.
+                </div>
+              </div>
+
+              <div class="col-12 d-flex flex-wrap gap-2 mt-2">
+                <button type="submit" class="btn btn-primary btn-lg px-4">Calcular</button>
+                <button type="button" id="clearBtn" class="btn btn-outline-secondary btn-lg">Limpiar</button>
+              </div>
+            </div>
+          </form>
+
+          <div id="resultCard" class="alert d-none mt-4" role="status" aria-live="polite">
+            <h2 id="resultTitle" class="h5 mb-1">Resultado</h2>
+            <div id="resultValue" class="display-6 fw-semibold result-value"></div>
+            <small id="resultExpr" class="text-muted d-block mt-1"></small>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="container py-4 text-center text-secondary small">
+    RDGKing
+  </footer>
+
+  <!-- Bootstrap JS (popper + bundle) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-..." crossorigin="anonymous"></script>
+
+  <!-- App script -->
+  <script src="script.js"></script>
+</body>
+</html>
