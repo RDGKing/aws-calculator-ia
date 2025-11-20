@@ -272,7 +272,65 @@ code {
   margin-top: .25rem;
   animation: pop 200ms ease-out;
 }
-#resultExpr { color: var(--text-soft); font-size: .95rem; margin-top: .25rem; display: block; }
+
+/* -- REEMPLAZADA: regla para que la expresión sea claramente legible -- */
+#resultExpr {
+  /* Forzar color de alto contraste */
+  color: var(--text-strong) !important;
+  /* Usar una tipografía monospace para fórmulas/operaciones */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight: 700;
+  font-size: .98rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+
+  /* Fondo suave y separación para asegurar legibilidad sobre gradientes */
+  background: rgba(0, 0, 0, 0.28);
+  padding: .25rem .5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.04);
+
+  /* Que se muestre como bloque en línea (para no ocupar toda la línea necesariamente) */
+  display: inline-block;
+  margin-top: .25rem;
+
+  /* Evitar que símbolos se corten o se mezclen */
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-width: 100%;
+
+  /* Afinar sombras para resaltar sin perder nitidez */
+  text-shadow: 0 1px 0 rgba(0,0,0,0.6);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.45);
+  z-index: 2;
+}
+
+/* Ajustes específicos cuando el card cambia de estado (mantener legibilidad) */
+#resultCard.alert-success #resultExpr,
+#resultCard.alert-danger #resultExpr,
+#resultCard.alert-info #resultExpr {
+  color: #f6fbf9 !important;
+  background: rgba(0,0,0,0.20);
+  border-color: rgba(255,255,255,0.05);
+}
+
+/* Clase utilitaria para destacar la expresión desde JS si se desea */
+.result-expr--highlight {
+  background: linear-gradient(90deg, rgba(52,201,217,0.06), rgba(155,126,232,0.04));
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 0 6px rgba(52,201,217,0.05);
+  transform: translateY(-2px);
+}
+
+/* Pequeña mejora para asegurar que el valor grande también se lea bien sobre gradientes */
+#resultValue {
+  /* Mantener color claro y añadir contraste ligero */
+  color: #e8ffee;
+  text-shadow: 0 6px 18px rgba(52,201,217,0.14), 0 1px 0 rgba(0,0,0,0.55);
+  /* Añadir un sutil contorno mediante filtro para pantallas complejas */
+  -webkit-text-stroke: 0.2px rgba(0,0,0,0.25);
+}
+
+/* ---- Fin de cambios relacionados con legibilidad ---- */
 
 @keyframes pop {
   from { transform: scale(0.985); opacity: .78; }
