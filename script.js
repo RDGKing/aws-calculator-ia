@@ -1,5 +1,5 @@
 // Configura tu webhook aquí
-const WEBHOOK_URL = "https://arbyk.app.n8n.cloud/webhook-test/operacion";
+const WEBHOOK_URL = "https://arbyk.app.n8n.cloud/webhook/operacion";
 
 document.addEventListener('DOMContentLoaded', () => {
   // Soporta #mathForm (tu HTML actual) y fallback a #opForm si lo usas en otra vista
